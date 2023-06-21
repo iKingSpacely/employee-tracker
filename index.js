@@ -10,6 +10,10 @@ const db = mysql.connect({
     console.log(`Connected to the employees_db database.`)
 );
 
+db.connect((err) => {
+    if (err) throw err;
+    console.log('You are not connected to the database!')});
+
 
 inquirer
     .createPromptModule([
@@ -56,5 +60,5 @@ inquirer
             choices: [''],
         },
     ]);
-    
+
 
