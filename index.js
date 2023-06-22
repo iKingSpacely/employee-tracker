@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
+const fs = require('fs');
 
 const db = mysql.connect({
     host: 'localhost',
@@ -7,13 +8,9 @@ const db = mysql.connect({
     password: 'root',
     database: 'employees_db'
 },
-    console.log(`Connected to the employees_db database.`)
+    console.log(`Connected to the employees database.`)
 );
 
-db.connect((err) => {
-    if (err) throw err;
-    console.log('You are not connected to the database!')
-});
 
 function startPrompts() {
     inquirer
@@ -109,4 +106,4 @@ function addDepartments() {
 //     },
 // ]);
 
-
+startPrompts();
