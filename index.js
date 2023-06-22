@@ -98,10 +98,23 @@ function addRole() {
             message: 'Please enter the role you would like to add.',
             name: 'add_role',
         },
+        {
+            type: 'input',
+            message: 'Please enter the salary you would like to include for this role.',
+            name: 'add_salary',
+        },
+        {
+            type: 'input',
+            message: 'Please enter the department id for this role.',
+            name: 'add_id',
+        },
     ]).then((res) => {
         db.query("INSERT INTO employee_roles SET ?;", {
-            title: res.add_role
+            title: res.add_role,
+            salary: res.add_salary,
+            department_id: res.add_id
         });
+        startPrompts();
     })
 };
 
