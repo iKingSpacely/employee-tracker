@@ -38,6 +38,9 @@ function startPrompts() {
                 case "Add an employee":
                     addEmployee()
                     break;
+                case "Update employee roles":
+                    updateEmp()
+                    break;
             }
         })
 };
@@ -52,7 +55,7 @@ function viewDepartments() {
 };
 
 function viewRoles() {
-    db.query('SELECT * FROM employee_info', (err, infos) => {
+    db.query('SELECT * FROM employee_roles', (err, infos) => {
         if (err) throw err;
         console.table(infos)
         startPrompts();
@@ -83,27 +86,51 @@ function addDepartments() {
     })
 };
 
+function addEmployee() {
+    inquirer.prmpt([
+        {
+            type: 'input',
+            message: 'Please enter the first name of the employee you would like to update.',
+            name: 'first_name',
+        },
+        {
+            type: 'input',
+            message: 'Please enter the last name of the employee you would like to update.',
+            name: 'last_name',
+        },
+        {
+            type: 'input',
+            message: 'Please enter the role id of the employee you would like to update.',
+            name: 'role_id',
+        },
+        {
+            type: 'input',
+            message: 'Please enter the manager id of the employee you would like to update.',
+            name: 'manager_id',
+        },
+    ]).then(( {first_name, last_name, role_id, manager_id} ) => {
+        db.query("INSERT INTO employee_info SET ?;", {first_name, last_name, role_id, manager_id}, (err) => {
+            if (err) throw err;
+            else console.log("New employee was added successfully!")
+            startPrompts();
+        });
+    })
+}
 
 
 
-//     {
-//         type: 'input',
-//         message: 'Please enter the role title you would like to add.',
-//         name: 'add_title',
-//         choices: [''],
-//     },
-//     {
-//         type: 'input',
-//         message: 'Please enter the name of the new employee you would like to add.',
-//         name: 'add_employee',
-//         choices: [''],
-//     },
-//     {
-//         type: 'input',
-//         message: 'Please enter the name of the employee you would like to update',
-//         name: 'add_employee',
-//         choices: [''],
-//     },
-// ]);
+
+// {
+//     type: 'input',
+//     message: 'Please enter the name of the new employee you would like to add.',
+//     name: 'add_employee',
+//     choices: [''],
+// },
+// {
+//     type: 'input',
+//     message: 'Please enter the name of the employee you would like to update',
+//     name: 'add_employee',
+//     choices: [''],
+// },
 
 startPrompts();

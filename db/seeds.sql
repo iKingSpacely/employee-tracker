@@ -4,7 +4,7 @@ VALUES ('UX/UI'),
        ('Marketing');
 
 
-INSERT INTO employee_jobs (title, salary, department_id)
+INSERT INTO employee_roles (title, salary, department_id)
 VALUES ('Sr. Vice President', 350000.00, 002),
        ('Sr. Director', 250000.00, 002),
        ('Director', 200000.00, 003),
