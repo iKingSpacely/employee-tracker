@@ -22,6 +22,7 @@ VALUES ('Adam', 'Colin', 001),
 
 
 INSERT INTO employee_info (first_name, last_name, role_id, manager_id)
-VALUES ('Adam', 'Colin', 001, 003);
+VALUES ('Adam', 'Colin', 001, 001),
+       ('Alicia', 'Thompson', 003, 001);
 
 

@@ -142,7 +142,7 @@ function addEmployee() {
                 name: 'manager_id',
             },
         ]).then(({ first_name, last_name, role_id, manager_id }) => {
-            db.query("INSERT INTO employee_info SET ?;", { first_name, last_name, role_id, manager_id }, (err) => {
+            db.query("INSERT INTO employee_info SET ?;", { first_name:first_name, last_name:last_name, role_id:role_id, manager_id:manager_id }, (err) => {
                 if (err) throw err;
                 else console.log("New employee was added successfully!")
                 startPrompts();
@@ -157,6 +157,11 @@ function updateEmp() {
                 type: 'input',
                 message: 'Please enter the id of the employee you would like to update.',
                 name: 'update_employee',
+            },
+            {
+                type: 'input',
+                message: 'Please enter the new role of the employee you would like to update.',
+                name: 'update_role',
             },
         ]).then((res) => {
             db.query("UPDATE employee_info SET role_id = ? WHERE last_name = ?;", [res.role_id, res.last_name], (err) => {
