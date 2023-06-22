@@ -6,7 +6,7 @@ Welcome to the employee tracker! It’s tough keeping track of all your departme
 Additionally, you’re able to add new employees, including their first/last name, role id, and manager id, along with updating current employees’ roles. You're even able to add in new departments, roles (the title and salary that comes with those roles), and new employees.
 
 ## Walkthrough Video
-
+- [Untitled_ Jun 22, 2023 6_00 PM.webm](https://github.com/iKingSpacely/employee-tracker/assets/131802980/dabcac0c-02bb-46c9-a5c1-371b3d3dfaac)
 
 ## Table of Contents
 - [Installation](#installation)
