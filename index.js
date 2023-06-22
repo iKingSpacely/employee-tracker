@@ -115,22 +115,19 @@ function addEmployee() {
             startPrompts();
         });
     })
+};
+
+function updateEmp() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Please enter the id of the employee you would like to update.',
+            name: 'update_employee',
+        },
+    ]).then((res) => {
+        db.query("")
+    })
 }
 
-
-
-
-// {
-//     type: 'input',
-//     message: 'Please enter the name of the new employee you would like to add.',
-//     name: 'add_employee',
-//     choices: [''],
-// },
-// {
-//     type: 'input',
-//     message: 'Please enter the name of the employee you would like to update',
-//     name: 'add_employee',
-//     choices: [''],
-// },
 
 startPrompts();
