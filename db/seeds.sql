@@ -21,8 +21,8 @@ VALUES ('Adam', 'Colin', 001),
        ('Austin', 'Powers', 006);
 
 
-INSERT INTO employee_info (first_name, last_name, role_id, manager_id)
-VALUES ('Adam', 'Colin', 001, 001),
-       ('Alicia', 'Thompson', 003, 001);
+-- UPDATE INTO employee_info (first_name, last_name, role_id, manager_id)
+-- VALUES ('Harry', 'Haroldson', 001, 001);
+       
 
 

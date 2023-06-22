@@ -41,7 +41,7 @@ function startPrompts() {
                 case "Add an employee":
                     addEmployee()
                     break;
-                case "Update employee roles":
+                case "Update employee role":
                     updateEmp()
                     break;
             }
@@ -123,22 +123,22 @@ function addEmployee() {
         .prompt([
             {
                 type: 'input',
-                message: 'Please enter the first name of the employee you would like to update.',
+                message: 'Please enter the first name of the employee you would like to add.',
                 name: 'first_name',
             },
             {
                 type: 'input',
-                message: 'Please enter the last name of the employee you would like to update.',
+                message: 'Please enter the last name of the employee you would like to add.',
                 name: 'last_name',
             },
             {
                 type: 'input',
-                message: 'Please enter the role id of the employee you would like to update.',
+                message: 'Please enter the role id of the employee you would like to add.',
                 name: 'role_id',
             },
             {
                 type: 'input',
-                message: 'Please enter the manager id of the employee you would like to update.',
+                message: 'Please enter the manager id of the employee you would like to add.',
                 name: 'manager_id',
             },
         ]).then(({ first_name, last_name, role_id, manager_id }) => {
@@ -151,26 +151,26 @@ function addEmployee() {
 };
 
 function updateEmp() {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                message: 'Please enter the id of the employee you would like to update.',
-                name: 'update_employee',
-            },
-            {
-                type: 'input',
-                message: 'Please enter the new role of the employee you would like to update.',
-                name: 'update_role',
-            },
-        ]).then((res) => {
-            db.query("UPDATE employee_info SET role_id = ? WHERE last_name = ?;", [res.role_id, res.last_name], (err) => {
-                if (err) throw err;
-                else console.log("Employed successfully updated!");
-                startPrompts();
-            });
-        })
-};
+    inquirer.prompt([
 
+        {
+            type: "input",
+            message: "Enter the employees last name you'd like to change",
+            name: "last_name",
+        },
+        {
+            type: "input",
+            message: "What is their new role id?",
+            name: "role_id",
+        },
+    ]).then((res) => {
+        db.query("UPDATE employee_info SET role_id = ? WHERE last_name = ?;", [res.role_id, res.last_name], (err) => {
+            if (err) console.log(e);
+            else console.log("Employee was updated")
+            startPrompts();
+        });
+        
+    })
+}
 
 startPrompts();
