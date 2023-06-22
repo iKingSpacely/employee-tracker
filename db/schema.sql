@@ -25,7 +25,7 @@ CREATE TABLE employee_info (
   role_id INT,
   FOREIGN KEY (role_id)
   REFERENCES employee_roles(id)
-  ON DELETE SET NULL
-  manager_id INT,
+  ON DELETE SET NULL,
+  manager_id INT
 );
 
